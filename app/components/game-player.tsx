@@ -18,7 +18,12 @@ export function GamePlayer({ game }: { game: Game }) {
   const [saved, setSaved] = useState(false);
 
   useEffect(() => {
-    if (user) setName((n) => (n === "INVITADO" ? user.name : n));
+    // UserProvider syncs its session from localStorage a tick after mount,
+    // so the HUD name is refreshed once that lands.
+    if (user) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setName((n) => (n === "INVITADO" ? user.name : n));
+    }
   }, [user]);
 
   useEffect(() => {
@@ -28,6 +33,9 @@ export function GamePlayer({ game }: { game: Game }) {
   }, [over, paused]);
 
   useEffect(() => {
+    // Ported from the original template: level bumps once per 2500-point
+    // window crossed, not derivable from score alone since increments are random.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (score > 0 && score % 2500 < 100) setLevel((l) => l + 1);
   }, [score]);
 

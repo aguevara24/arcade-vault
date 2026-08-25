@@ -18,8 +18,11 @@ export function UserProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
+    // Reading localStorage on mount, not in the initializer, keeps server and
+    // first client render identical and avoids a hydration mismatch.
     try {
       const stored = JSON.parse(localStorage.getItem("av_user") || "null");
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setUser(stored);
     } catch {
       setUser(null);
