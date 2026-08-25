@@ -16,20 +16,13 @@ npx skills@latest add Klerith/fernando-skills
 
 Currently the repo is an unmodified `create-next-app` scaffold — no app-specific routes, components, or game logic exist yet beyond `app/page.tsx` and `app/layout.tsx`.
 
+## Skills
+Usa siempre /frontend-design para diseñar la interfaz de usuario.
+
 ## IMPORTANT: read Next.js docs before writing code
 
 This project pins a Next.js version (16.3.1) that may include breaking changes relative to your training data — APIs, conventions, and file structure may differ. Before writing any Next.js code, read the relevant guide under `node_modules/next/dist/docs/` (sections: `01-app`, `02-pages`, `03-architecture`, `04-community`). Heed deprecation notices found there.
 
-## Commands
-
-```bash
-npm run dev      # start dev server (next dev)
-npm run build    # production build (next build)
-npm run start    # run production build (next start)
-npm run lint     # eslint
-```
-
-No test runner is configured yet.
 
 ## Architecture
 
