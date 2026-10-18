@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect } from "react";
 import Link from "next/link";
 import { GAMES, RECENT_ACTIVITY, TOP_PLAYERS_TODAY } from "@/app/data/games";
 import { GameMiniCard } from "@/app/components/game-mini-card";
@@ -125,6 +128,23 @@ function SiloIcon() {
 export default function Home() {
   const featured = GAMES.slice(0, 6);
 
+  useEffect(() => {
+    const els = document.querySelectorAll(".reveal");
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
   return (
     <div className="home fade-in">
       <section className="home-hero">
@@ -164,7 +184,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="home-section">
+      <section className="home-section reveal">
         <div className="section-head">
           <span className="kicker pixel neon-magenta">// 01</span>
           <h2 className="section-title">¿POR QUÉ ARCADE VAULT?</h2>
@@ -181,7 +201,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="home-section">
+      <section className="home-section reveal">
         <div className="section-head">
           <span className="kicker pixel neon-magenta">// 02</span>
           <h2 className="section-title">JUEGOS DISPONIBLES AHORA</h2>
@@ -199,7 +219,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="home-stats">
+      <section className="home-stats reveal">
         <div className="stats-inner">
           <div className="stat-block">
             <div className="stat-n neon-cyan">{GAMES.length}+</div>
@@ -219,7 +239,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="home-section">
+      <section className="home-section reveal">
         <div className="section-head">
           <span className="kicker pixel neon-magenta">// 03</span>
           <h2 className="section-title">ACTIVIDAD EN VIVO</h2>
@@ -271,7 +291,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="home-section">
+      <section className="home-section reveal">
         <div className="section-head">
           <span className="kicker pixel neon-magenta">// 04</span>
           <h2 className="section-title">PRECIOS</h2>
@@ -328,7 +348,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="home-final">
+      <section className="home-final reveal">
         <h2 className="final-title pixel">¿LISTO PARA JUGAR?</h2>
         <Link href="/games" className="btn xl pulse final-cta">
           INSERTAR MONEDA →
