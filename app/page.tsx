@@ -186,7 +186,7 @@ export default function Home() {
 
       <section className="home-section reveal">
         <div className="section-head">
-          <span className="kicker pixel neon-magenta">// 01</span>
+          <span className="kicker pixel neon-magenta">{"// 01"}</span>
           <h2 className="section-title">¿POR QUÉ ARCADE VAULT?</h2>
           <div className="section-rule"></div>
         </div>
@@ -203,7 +203,7 @@ export default function Home() {
 
       <section className="home-section reveal">
         <div className="section-head">
-          <span className="kicker pixel neon-magenta">// 02</span>
+          <span className="kicker pixel neon-magenta">{"// 02"}</span>
           <h2 className="section-title">JUEGOS DISPONIBLES AHORA</h2>
           <div className="section-rule"></div>
         </div>
@@ -241,7 +241,7 @@ export default function Home() {
 
       <section className="home-section reveal">
         <div className="section-head">
-          <span className="kicker pixel neon-magenta">// 03</span>
+          <span className="kicker pixel neon-magenta">{"// 03"}</span>
           <h2 className="section-title">ACTIVIDAD EN VIVO</h2>
           <div className="section-rule"></div>
         </div>
@@ -293,7 +293,7 @@ export default function Home() {
 
       <section className="home-section reveal">
         <div className="section-head">
-          <span className="kicker pixel neon-magenta">// 04</span>
+          <span className="kicker pixel neon-magenta">{"// 04"}</span>
           <h2 className="section-title">PRECIOS</h2>
           <div className="section-rule"></div>
         </div>
