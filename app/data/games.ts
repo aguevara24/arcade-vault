@@ -116,6 +116,40 @@ export interface ScoreRow {
   date: string;
 }
 
+export interface ActivityRow {
+  name: string;
+  gameId: string;
+  score: number;
+  ago: string;
+}
+
+// 7 filas fijas, una por cada uno de los primeros 7 juegos de GAMES (en su
+// orden actual): el puntaje de cada fila es el `best` de ese juego.
+export const RECENT_ACTIVITY: ActivityRow[] = [
+  { name: "NEONFOX", gameId: "caida", score: 184220, ago: "hace 2 min" },
+  { name: "PX_KAI", gameId: "gloton", score: 96400, ago: "hace 5 min" },
+  { name: "Z3R0COOL", gameId: "invasores", score: 54190, ago: "hace 8 min" },
+  { name: "VAULT_07", gameId: "rocas", score: 41200, ago: "hace 12 min" },
+  { name: "GLITCHA", gameId: "bloque-buster", score: 28450, ago: "hace 18 min" },
+  { name: "ARKADYA", gameId: "serpentina", score: 7820, ago: "hace 24 min" },
+  { name: "CYBER_LU", gameId: "ranaria", score: 18900, ago: "hace 31 min" },
+];
+
+export interface TopPlayerRow {
+  rank: number;
+  name: string;
+  score: number;
+}
+
+// 5 filas fijas, no correlacionadas con RECENT_ACTIVITY ni con GAMES.
+export const TOP_PLAYERS_TODAY: TopPlayerRow[] = [
+  { rank: 1, name: "NEONFOX", score: 312840 },
+  { rank: 2, name: "PX_KAI", score: 248110 },
+  { rank: 3, name: "M00NRYU", score: 196720 },
+  { rank: 4, name: "VAULT_07", score: 154300 },
+  { rank: 5, name: "GLITCHA", score: 138900 },
+];
+
 export function seededScores(seed: number, count = 12): ScoreRow[] {
   let s = seed;
   const rand = () => (s = (s * 9301 + 49297) % 233280) / 233280;
