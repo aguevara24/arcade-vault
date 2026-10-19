@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect } from "react";
 import Link from "next/link";
 import { GAMES, RECENT_ACTIVITY, TOP_PLAYERS_TODAY } from "@/app/data/games";
 import { GameMiniCard } from "@/app/components/game-mini-card";
+import { Reveal } from "@/app/components/reveal";
 
 const FEATURES = [
   {
@@ -128,25 +128,9 @@ function SiloIcon() {
 export default function Home() {
   const featured = GAMES.slice(0, 6);
 
-  useEffect(() => {
-    const els = document.querySelectorAll(".reveal");
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("in");
-            io.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.12 }
-    );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, []);
-
   return (
     <div className="home fade-in">
+      <Reveal />
       <section className="home-hero">
         <div className="home-silos">
           {SILOS.map((s) => (
