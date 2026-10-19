@@ -4,6 +4,7 @@ import {
   type HighlightIconKind,
 } from "@/app/components/highlight-icon";
 import { ContactForm } from "@/app/about/contact-form";
+import { Reveal } from "@/app/components/reveal";
 
 export const metadata: Metadata = {
   title: "Acerca de · Arcade Vault",
@@ -24,6 +25,7 @@ const HIGHLIGHTS: { kind: HighlightIconKind; text: string; color: string }[] = [
 export default function AboutPage() {
   return (
     <div className="about fade-in">
+      <Reveal />
       <section className="about-hero">
         <div className="kicker pixel neon-yellow">▸ ACERCA DE</div>
         <h1 className="about-title">ACERCA DE ARCADE VAULT</h1>
