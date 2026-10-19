@@ -13,8 +13,8 @@ export function ContactForm() {
   // Permite volver al formulario tras un éxito sin reiniciar el estado de la acción.
   const [dismissed, setDismissed] = useState(false);
 
-  const showSuccess = state.status === "success" && !dismissed;
-  const showError = state.status === "error" && !dismissed;
+  const showSuccess = state.status === "success" && !dismissed && !pending;
+  const showError = state.status === "error" && !dismissed && !pending;
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
